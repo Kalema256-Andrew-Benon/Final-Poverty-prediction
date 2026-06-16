@@ -1,0 +1,96 @@
+# ==========================================
+# POVERTY PREDICTION RECOMMENDATION ENGINE
+# Auto-generated for Poverty Streamlit App
+# ==========================================
+
+RECOMMENDATION_DB = {
+    "0": {
+        "label": "Extreme Poverty",
+        "focus_areas": [
+            "Emergency Relief",
+            "Basic Needs",
+            "Social Protection"
+        ],
+        "recommendations": [
+            "1. Apply for government social safety net programs (cash transfers, food assistance) to stabilize immediate household needs.",
+            "2. Enroll in community-based microfinance or cooperative savings groups to build financial resilience and access small loans.",
+            "3. Seek free vocational training programs focused on high-demand local trades (e.g., tailoring, carpentry, agriculture).",
+            "4. Connect with NGOs providing emergency housing support, clean water access, or sanitation infrastructure.",
+            "5. Prioritize primary healthcare registration to access free/subsidized medical services and preventive care.",
+            "6. Explore school feeding programs and fee waivers to ensure children's education continuity despite financial hardship.",
+            "7. Apply for utility subsidy programs (electricity, water) to reduce monthly living costs.",
+            "8. Join agricultural cooperatives or input subsidy schemes if farming is a primary livelihood source.",
+            "9. Utilize community health worker services for maternal/child health and nutrition counseling.",
+            "10. Document and apply for all eligible poverty alleviation grants, disability support, or elderly care pensions if applicable."
+        ]
+    },
+    "1": {
+        "label": "Moderate Poverty",
+        "focus_areas": [
+            "Skill Development",
+            "Asset Building",
+            "Income Diversification"
+        ],
+        "recommendations": [
+            "1. Invest in certified vocational or digital literacy training to transition into higher-paying formal employment.",
+            "2. Explore micro-entrepreneurship grants or low-interest loans to start or scale a small home-based business.",
+            "3. Diversify household income by combining formal employment with part-time gig work or seasonal agriculture.",
+            "4. Enroll in government health insurance schemes to prevent medical expenses from causing financial shocks.",
+            "5. Upgrade housing incrementally using low-cost, durable materials (e.g., interlocking bricks, corrugated roofing).",
+            "6. Access adult education programs or high school equivalency courses to improve long-term employability.",
+            "7. Open a dedicated savings account with automatic monthly transfers to build an emergency fund (target: 3-6 months expenses).",
+            "8. Leverage mobile banking and digital wallets to reduce transaction fees and track household spending efficiently.",
+            "9. Participate in local farming co-ops or value-chain programs to increase agricultural yield and market access.",
+            "10. Apply for subsidized housing loans or rent-to-own schemes to transition from temporary to permanent housing."
+        ]
+    },
+    "2": {
+        "label": "Low Poverty",
+        "focus_areas": [
+            "Wealth Accumulation",
+            "Higher Education",
+            "Financial Planning"
+        ],
+        "recommendations": [
+            "1. Develop a comprehensive household budget with automated savings/investments (target: 20%+ of monthly income).",
+            "2. Invest in mutual funds, treasury bills, or real estate to build long-term wealth and hedge against inflation.",
+            "3. Enroll children in quality secondary/tertiary education programs and explore scholarship opportunities.",
+            "4. Upgrade digital infrastructure (reliable internet, computers) to enable remote work, freelancing, or e-commerce.",
+            "5. Purchase comprehensive health and life insurance to protect household assets and future stability.",
+            "6. Explore higher education or professional certifications for household members to access senior/corporate roles.",
+            "7. Diversify investments across multiple asset classes (stocks, bonds, property) to minimize financial risk.",
+            "8. Implement energy-efficient home upgrades (solar panels, water recycling) to reduce long-term utility costs.",
+            "9. Start or join investment clubs/ROSCAs to pool capital for larger business ventures or property acquisition.",
+            "10. Create a formal estate plan (will, trust, power of attorney) to secure generational wealth transfer and asset protection."
+        ]
+    }
+}
+
+def get_recommendations(poverty_class_id: int, top_n: int = 10) -> dict:
+    """
+    Retrieve tailored recommendations based on predicted poverty class.
+    
+    Args:
+        poverty_class_id: 0 (Extreme), 1 (Moderate), 2 (Low)
+        top_n: Number of recommendations to return (default: 10)
+        
+    Returns:
+        Dictionary with label, focus_areas, and recommendations list
+    """
+    if poverty_class_id not in RECOMMENDATION_DB:
+        return {
+            'label': 'Unknown Class',
+            'focus_areas': ['General Support'],
+            'recommendations': ['Please consult a local social services office for personalized guidance.']
+        }
+    
+    data = RECOMMENDATION_DB[poverty_class_id]
+    return {
+        'label': data['label'],
+        'focus_areas': data['focus_areas'],
+        'recommendations': data['recommendations'][:top_n]
+    }
+
+def get_all_recommendations() -> dict:
+    """Return the complete recommendation database."""
+    return RECOMMENDATION_DB

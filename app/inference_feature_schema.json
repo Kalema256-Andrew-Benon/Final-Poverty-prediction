@@ -1,0 +1,61 @@
+{
+    "feature_columns": [
+        "age_head",
+        "education_head",
+        "household_size",
+        "employment_head",
+        "income_source",
+        "monthly_income",
+        "house_type",
+        "wall_material",
+        "lighting_source",
+        "toilet_type",
+        "water_source",
+        "has_electricity",
+        "age_group_encoded",
+        "income_bracket_encoded",
+        "household_size_group_encoded",
+        "income_per_member",
+        "education_age_ratio",
+        "asset_proxy",
+        "education_employment_interaction",
+        "housing_electricity_interaction"
+    ],
+    "target_column": "target",
+    "target_classes": {
+        "0": "Extreme Poverty",
+        "1": "Moderate Poverty",
+        "2": "Low Poverty"
+    },
+    "expected_shape": [
+        5000,
+        24
+    ],
+    "data_types": {
+        "age_head": "float64",
+        "education_head": "float64",
+        "household_size": "float64",
+        "employment_head": "float64",
+        "income_source": "float64",
+        "monthly_income": "float64",
+        "house_type": "float64",
+        "wall_material": "float64",
+        "lighting_source": "float64",
+        "toilet_type": "float64",
+        "water_source": "float64",
+        "has_electricity": "float64",
+        "household_id": "int64",
+        "region": "int64",
+        "poverty_class": "object",
+        "target": "int64",
+        "age_group_encoded": "float64",
+        "income_bracket_encoded": "float64",
+        "household_size_group_encoded": "float64",
+        "income_per_member": "float64",
+        "education_age_ratio": "float64",
+        "asset_proxy": "float64",
+        "education_employment_interaction": "float64",
+        "housing_electricity_interaction": "float64"
+    },
+    "created_at": "2026-04-25T14:20:13.982710"
+}

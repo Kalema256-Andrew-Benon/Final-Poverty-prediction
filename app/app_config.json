@@ -1,0 +1,14 @@
+{
+    "app_name": "Poverty Classification App",
+    "version": "1.0.0",
+    "model_type": "RandomForestClassifier",
+    "required_files": {
+        "model": "champion_model.pkl",
+        "features": "feature_list.json",
+        "encoder": "feature_encoder.json",
+        "target_mapping": "target_encoding_config.json",
+        "shap_data": "shap_feature_impact.json"
+    },
+    "deployment_status": "READY",
+    "created_at": "2026-04-25T17:52:40.006235"
+}

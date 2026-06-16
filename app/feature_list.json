@@ -1,0 +1,16 @@
+[
+  "age_head",
+  "sex_head",
+  "edu_group",
+  "marital_head",
+  "household_size",
+  "urban",
+  "region",
+  "consumption_pc",
+  "consumption_per_member",
+  "nonfood_share",
+  "welfare_ratio",
+  "age_group",
+  "hh_size_group",
+  "education_head"
+]

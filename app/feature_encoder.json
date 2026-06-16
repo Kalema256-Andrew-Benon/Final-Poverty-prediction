@@ -1,0 +1,223 @@
+{
+    "app_questions": {
+        "q1_age": {
+            "options": [
+                "18-25",
+                "26-35",
+                "36-45",
+                "46-55",
+                "56-65",
+                "66+"
+            ],
+            "mapped_values": [
+                21.5,
+                30.5,
+                40.5,
+                50.5,
+                60.5,
+                70
+            ]
+        },
+        "q2_education": {
+            "options": [
+                "No formal",
+                "Primary",
+                "Secondary",
+                "Tertiary"
+            ],
+            "mapped_values": [
+                0,
+                1,
+                2,
+                3
+            ]
+        },
+        "q3_household_size": {
+            "options": [
+                "1-2",
+                "3-4",
+                "5-6",
+                "7-8",
+                "9+"
+            ],
+            "mapped_values": [
+                1.5,
+                3.5,
+                5.5,
+                7.5,
+                10
+            ]
+        },
+        "q4_employment": {
+            "options": [
+                "Employed",
+                "Self-employed",
+                "Unemployed",
+                "Retired",
+                "Other"
+            ],
+            "mapped_values": [
+                0,
+                1,
+                2,
+                3,
+                4
+            ]
+        },
+        "q5_income_source": {
+            "options": [
+                "Farming",
+                "Business",
+                "Salary",
+                "Remittances",
+                "Other"
+            ],
+            "mapped_values": [
+                0,
+                1,
+                2,
+                3,
+                4
+            ]
+        },
+        "q6_monthly_income": {
+            "options": [
+                "<50k",
+                "50k-100k",
+                "100k-200k",
+                "200k-500k",
+                "500k-1M",
+                ">1M"
+            ],
+            "mapped_values": [
+                25000,
+                75000,
+                150000,
+                350000,
+                750000,
+                1250000
+            ]
+        },
+        "q7_monthly_expenditure": {
+            "options": [
+                "<50k",
+                "50k-100k",
+                "100k-200k",
+                "200k-500k",
+                "500k-1M",
+                ">1M"
+            ],
+            "mapped_values": [
+                25000,
+                75000,
+                150000,
+                350000,
+                750000,
+                1250000
+            ]
+        },
+        "q8_house_type": {
+            "options": [
+                "Permanent",
+                "Semi-permanent",
+                "Temporary",
+                "Informal"
+            ],
+            "mapped_values": [
+                0,
+                1,
+                2,
+                3
+            ]
+        },
+        "q9_wall_material": {
+            "options": [
+                "Brick/Stone",
+                "Iron Sheets",
+                "Mud/Wattle",
+                "Wood/Thatch",
+                "Other"
+            ],
+            "mapped_values": [
+                0,
+                1,
+                2,
+                3,
+                4
+            ]
+        },
+        "q10_lighting": {
+            "options": [
+                "Electricity",
+                "Solar",
+                "Paraffin",
+                "Firewood",
+                "Battery",
+                "None"
+            ],
+            "mapped_values": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5
+            ]
+        },
+        "q11_toilet": {
+            "options": [
+                "Flush",
+                "Improved Pit",
+                "Unimproved Pit",
+                "Shared",
+                "None"
+            ],
+            "mapped_values": [
+                0,
+                1,
+                2,
+                3,
+                4
+            ]
+        },
+        "q12_water": {
+            "options": [
+                "Piped",
+                "Borehole",
+                "Well",
+                "Rainwater",
+                "River",
+                "Vendor"
+            ],
+            "mapped_values": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5
+            ]
+        },
+        "q13_electricity": {
+            "options": [
+                "Yes",
+                "No"
+            ],
+            "mapped_values": [
+                1,
+                0
+            ]
+        }
+    },
+    "target_mapping": {
+        "Extreme Poverty": 0,
+        "Moderate Poverty": 1,
+        "Low Poverty": 2
+    },
+    "inverse_target_mapping": {
+        "0": "Extreme Poverty",
+        "1": "Moderate Poverty",
+        "2": "Low Poverty"
+    },
+    "created_at": "2026-04-25T13:54:52.932029"
+}

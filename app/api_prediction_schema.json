@@ -1,0 +1,110 @@
+{
+    "endpoint": "/predict",
+    "method": "POST",
+    "request_body": {
+        "features": {
+            "type": "object",
+            "properties": {
+                "age_head": {
+                    "type": "number"
+                },
+                "education_head": {
+                    "type": "number"
+                },
+                "household_size": {
+                    "type": "number"
+                },
+                "employment_head": {
+                    "type": "number"
+                },
+                "income_source": {
+                    "type": "number"
+                },
+                "monthly_income": {
+                    "type": "number"
+                },
+                "house_type": {
+                    "type": "number"
+                },
+                "wall_material": {
+                    "type": "number"
+                },
+                "lighting_source": {
+                    "type": "number"
+                },
+                "toilet_type": {
+                    "type": "number"
+                },
+                "water_source": {
+                    "type": "number"
+                },
+                "has_electricity": {
+                    "type": "number"
+                },
+                "age_group_encoded": {
+                    "type": "number"
+                },
+                "income_bracket_encoded": {
+                    "type": "number"
+                },
+                "household_size_group_encoded": {
+                    "type": "number"
+                },
+                "income_per_member": {
+                    "type": "number"
+                },
+                "education_age_ratio": {
+                    "type": "number"
+                },
+                "asset_proxy": {
+                    "type": "number"
+                },
+                "education_employment_interaction": {
+                    "type": "number"
+                },
+                "housing_electricity_interaction": {
+                    "type": "number"
+                }
+            },
+            "required": [
+                "age_head",
+                "education_head",
+                "household_size",
+                "employment_head",
+                "income_source",
+                "monthly_income",
+                "house_type",
+                "wall_material",
+                "lighting_source",
+                "toilet_type",
+                "water_source",
+                "has_electricity",
+                "age_group_encoded",
+                "income_bracket_encoded",
+                "household_size_group_encoded",
+                "income_per_member",
+                "education_age_ratio",
+                "asset_proxy",
+                "education_employment_interaction",
+                "housing_electricity_interaction"
+            ]
+        }
+    },
+    "response_body": {
+        "predicted_class": {
+            "type": "integer"
+        },
+        "class_name": {
+            "type": "string"
+        },
+        "probabilities": {
+            "type": "object"
+        },
+        "confidence": {
+            "type": "number"
+        },
+        "input_features": {
+            "type": "object"
+        }
+    }
+}

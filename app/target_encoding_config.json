@@ -1,0 +1,21 @@
+{
+  "target_column": "target",
+  "class_mapping": {
+    "0": "Extreme Poverty",
+    "1": "Moderate Poverty",
+    "2": "Low Poverty"
+  },
+  "inverse_mapping": {
+    "Extreme Poverty": 0,
+    "Moderate Poverty": 1,
+    "Low Poverty": 2
+  },
+  "class_distribution": {
+    "Extreme Poverty": 192,
+    "Moderate Poverty": 247,
+    "Low Poverty": 2635
+  },
+  "total_samples": 3074,
+  "encoding_method": "poverty_line_threshold",
+  "created_at": "2026-04-27T22:21:04.230957"
+}

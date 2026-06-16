@@ -1,0 +1,301 @@
+{
+    "input_features": {
+        "q1": {
+            "question": "What is the age of the household head?",
+            "column": "age_head",
+            "type": "numerical"
+        },
+        "q2": {
+            "question": "What is the education level of the household head?",
+            "column": "education_head",
+            "type": "categorical"
+        },
+        "q3": {
+            "question": "How many people live in the household?",
+            "column": "household_size",
+            "type": "numerical"
+        },
+        "q4": {
+            "question": "What is the employment status of the household head?",
+            "column": "employment_head",
+            "type": "categorical"
+        },
+        "q5": {
+            "question": "What is the main source of income?",
+            "column": "income_source",
+            "type": "categorical"
+        },
+        "q6": {
+            "question": "What is the approximate monthly income?",
+            "column": "monthly_income",
+            "type": "numerical"
+        },
+        "q7": {
+            "question": "What is your approximate monthly expenditure?",
+            "column": "monthly_income",
+            "type": "numerical"
+        },
+        "q8": {
+            "question": "What type of house do you live in?",
+            "column": "house_type",
+            "type": "categorical"
+        },
+        "q9": {
+            "question": "What is the main material of the house walls?",
+            "column": "wall_material",
+            "type": "categorical"
+        },
+        "q10": {
+            "question": "What is the main source of lighting?",
+            "column": "lighting_source",
+            "type": "categorical"
+        },
+        "q11": {
+            "question": "What type of toilet facility is used?",
+            "column": "toilet_type",
+            "type": "categorical"
+        },
+        "q12": {
+            "question": "What is the main source of drinking water?",
+            "column": "water_source",
+            "type": "categorical"
+        },
+        "q13": {
+            "question": "Do you have access to electricity?",
+            "column": "has_electricity",
+            "type": "binary"
+        }
+    },
+    "target_column": "target",
+    "target_classes": {
+        "0": "Extreme Poverty",
+        "1": "Moderate Poverty",
+        "2": "Low Poverty"
+    },
+    "feature_order": [
+        "age_head",
+        "education_head",
+        "household_size",
+        "employment_head",
+        "income_source",
+        "monthly_income",
+        "house_type",
+        "wall_material",
+        "lighting_source",
+        "toilet_type",
+        "water_source",
+        "has_electricity"
+    ],
+    "created_at": "2026-04-25T13:59:27.642894",
+    "transformed_features": [
+        "age_head",
+        "education_head",
+        "household_size",
+        "employment_head",
+        "income_source",
+        "monthly_income",
+        "house_type",
+        "wall_material",
+        "lighting_source",
+        "toilet_type",
+        "water_source",
+        "has_electricity",
+        "age_group_encoded",
+        "income_bracket_encoded",
+        "household_size_group_encoded",
+        "income_per_member",
+        "education_age_ratio",
+        "asset_proxy",
+        "education_employment_interaction",
+        "housing_electricity_interaction"
+    ],
+    "transformations": {
+        "age_head": {
+            "method": "binning + label_encode",
+            "bins": [
+                0,
+                25,
+                35,
+                45,
+                55,
+                65,
+                100
+            ],
+            "labels": [
+                "18-25",
+                "26-35",
+                "36-45",
+                "46-55",
+                "56-65",
+                "66+"
+            ],
+            "mapping": {
+                "18-25": 0,
+                "26-35": 1,
+                "36-45": 2,
+                "46-55": 3,
+                "56-65": 4,
+                "66+": 5
+            }
+        },
+        "monthly_income_binned": {
+            "method": "binning + label_encode",
+            "bins": [
+                0,
+                50000,
+                100000,
+                200000,
+                500000,
+                1000000,
+                "inf"
+            ],
+            "labels": [
+                "<50k",
+                "50k-100k",
+                "100k-200k",
+                "200k-500k",
+                "500k-1M",
+                ">1M"
+            ],
+            "mapping": {
+                "<50k": 0,
+                "50k-100k": 1,
+                "100k-200k": 2,
+                "200k-500k": 3,
+                "500k-1M": 4,
+                ">1M": 5
+            }
+        },
+        "household_size_binned": {
+            "method": "binning + label_encode",
+            "bins": [
+                0,
+                2,
+                4,
+                6,
+                8,
+                20
+            ],
+            "labels": [
+                "1-2",
+                "3-4",
+                "5-6",
+                "7-8",
+                "9+"
+            ],
+            "mapping": {
+                "1-2": 0,
+                "3-4": 1,
+                "5-6": 2,
+                "7-8": 3,
+                "9+": 4
+            }
+        },
+        "income_per_member": {
+            "method": "ratio",
+            "formula": "monthly_income / household_size",
+            "description": "Income per household member (poverty intensity)"
+        },
+        "education_age_ratio": {
+            "method": "ratio",
+            "formula": "education_head / (age_head + 1)",
+            "description": "Education level relative to age (human capital development)"
+        },
+        "asset_proxy": {
+            "method": "weighted_composite",
+            "formula": "(4-house_type)*0.4 + has_electricity*0.3 + (5-water_source)*0.3",
+            "description": "Composite asset index proxy (housing + electricity + water)"
+        },
+        "education_employment_interaction": {
+            "method": "multiplicative_interaction",
+            "formula": "education_head * employment_head",
+            "description": "Interaction between education and employment status"
+        },
+        "housing_electricity_interaction": {
+            "method": "multiplicative_interaction",
+            "formula": "(4-house_type) * has_electricity",
+            "description": "Better housing with electricity access (infrastructure synergy)"
+        }
+    },
+    "target_info": {
+        "target_column": "target",
+        "class_mapping": {
+            "0": "Extreme Poverty",
+            "1": "Moderate Poverty",
+            "2": "Low Poverty"
+        },
+        "inverse_mapping": {
+            "Extreme Poverty": 0,
+            "Moderate Poverty": 1,
+            "Low Poverty": 2
+        },
+        "class_distribution": {
+            "Low Poverty": 1700,
+            "Extreme Poverty": 1650,
+            "Moderate Poverty": 1650
+        },
+        "total_samples": 5000,
+        "is_balanced": true,
+        "encoding_method": "manual_mapping",
+        "created_at": "2026-04-25T14:15:53.938979"
+    },
+    "feature_columns": [
+        "age_head",
+        "education_head",
+        "household_size",
+        "employment_head",
+        "income_source",
+        "monthly_income",
+        "house_type",
+        "wall_material",
+        "lighting_source",
+        "toilet_type",
+        "water_source",
+        "has_electricity",
+        "age_group_encoded",
+        "income_bracket_encoded",
+        "household_size_group_encoded",
+        "income_per_member",
+        "education_age_ratio",
+        "asset_proxy",
+        "education_employment_interaction",
+        "housing_electricity_interaction"
+    ],
+    "split_info": {
+        "train_size": 4000,
+        "test_size": 1000,
+        "stratified": true,
+        "random_state": 42
+    },
+    "balance_verification": {
+        "status": "PASS",
+        "train_ratio": 0.9705882352941176,
+        "test_ratio": 0.9705882352941176,
+        "chi2_p_train": 1.0,
+        "chi2_p_test": 1.0
+    },
+    "moderate_subset": {
+        "enabled": true,
+        "size": 2000,
+        "ratio": 0.5,
+        "path": "/content/drive/MyDrive/Poverty/dataset/train_data_moderate.csv"
+    },
+    "data_cleaning": {
+        "pre_phase7_cleaning": true,
+        "imputation_strategies": {
+            "numerical": "median",
+            "categorical": "most_frequent"
+        },
+        "cleaned_dataset_path": "/content/drive/MyDrive/Poverty/dataset/train_data_moderate_cleaned.csv"
+    },
+    "champion_model": {
+        "name": "Random Forest",
+        "path": "/content/drive/MyDrive/Poverty/outputs/models/champion_model.pkl",
+        "metrics": {
+            "test_accuracy": 0.999,
+            "test_precision": 0.9990029325513197,
+            "test_recall": 0.999,
+            "test_f1": 0.9989999754890492
+        }
+    }
+}

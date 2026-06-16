@@ -1,0 +1,44 @@
+{
+  "age_head": {
+    "mean_abs_impact": 0.0
+  },
+  "sex_head": {
+    "mean_abs_impact": 3.6129047692764484e-05
+  },
+  "edu_group": {
+    "mean_abs_impact": 0.0
+  },
+  "marital_head": {
+    "mean_abs_impact": 0.0003714728622936979
+  },
+  "household_size": {
+    "mean_abs_impact": 0.001825084582462035
+  },
+  "urban": {
+    "mean_abs_impact": 0.016217397262824784
+  },
+  "region": {
+    "mean_abs_impact": 0.012078371704357478
+  },
+  "consumption_pc": {
+    "mean_abs_impact": 0.002410002685948904
+  },
+  "consumption_per_member": {
+    "mean_abs_impact": 0.0014314938595468678
+  },
+  "nonfood_share": {
+    "mean_abs_impact": 0.0
+  },
+  "welfare_ratio": {
+    "mean_abs_impact": 0.9635555736509065
+  },
+  "age_group": {
+    "mean_abs_impact": 0.0
+  },
+  "hh_size_group": {
+    "mean_abs_impact": 0.001969752115999282
+  },
+  "education_head": {
+    "mean_abs_impact": 0.00010472222796763897
+  }
+}
